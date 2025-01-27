@@ -11,3 +11,5 @@ class Ninja extends Model
     /** @use HasFactory<\Database\Factories\NinjaFactory> */
     use HasFactory;
 }
+
+// Model, View, Controller
