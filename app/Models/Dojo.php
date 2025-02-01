@@ -10,4 +10,8 @@ class Dojo extends Model
     protected $fillable = ['name', 'location', 'description'];
     /** @use HasFactory<\Database\Factories\NinjaFactory> */
     use HasFactory;
+
+    public function ninjas() {
+        return $this->hasMany(Ninja::class);
+    }
 }
