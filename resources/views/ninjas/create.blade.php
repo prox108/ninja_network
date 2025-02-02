@@ -1,49 +1,51 @@
 <x-layout>
-    <form action="" method="">
-        @csrf
-        
-        <h2>Create a New Ninja</h2>
+  <form action="{{ route('ninjas.store') }}" method="POST">
+    <!-- CSRF token for security -->
+    @csrf
 
-        <!-- ninja Name -->
-        <label for="name">Ninja Name:</label>
-        <input
-            type="text"
-            id="name"
-            name="name"
-            value=""
-            required>
+    <h2>Create a New Ninja</h2>
 
-        <!-- ninja Strength -->
-        <label for="skill">Ninja Skill (0-100):</label>
-        <input
-            type="number"
-            id="skill"
-            name="skill"
-            required>
+    <!-- ninja Name -->
+    <label for="name">Ninja Name:</label>
+    <input 
+      type="text" 
+      id="name" 
+      name="name" 
+      required
+    >
 
-        <!-- ninja Bio -->
-        <label for="bio">Biography:</label>
-        <textarea
-            rows="5"
-            id="bio"
-            name="bio"
-            required></textarea>
+    <!-- ninja Strength -->
+    <label for="skill">Ninja Skill (0-100):</label>
+    <input 
+      type="number" 
+      id="skill" 
+      name="skill" 
+      required
+    >
 
-        <!-- select a dojo -->
-        <label for="dojo_id">Dojo:</label>
-        <select id="dojo_id" name="dojo_id" required>
-            <option value="" disabled selected>Select a dojo</option>
-            @foreach($dojos as $dojo)
-                <option value="{{ $dojo->id }}">
-                    {{ $dojo->name }}
-                </option>
-            @endforeach
+    <!-- ninja Bio -->
+    <label for="bio">Biography:</label>
+    <textarea
+      rows="5"
+      id="bio" 
+      name="bio" 
+      required
+    ></textarea>
 
-        </select>
+    <!-- select a dojo -->
+    <label for="dojo_id">Dojo:</label>
+    <select id="dojo_id" name="dojo_id" required>
+      <option value="" disabled selected>Select a dojo</option>
+      @foreach ($dojos as $dojo)
+        <option value="{{ $dojo->id }}">
+          {{ $dojo->name }}
+        </option>
+      @endforeach
+    </select>
 
-        <button type="submit" class="btn mt-4">Create Ninja</button>
+    <button type="submit" class="btn mt-4">Create Ninja</button>
 
-        <!-- validation errors -->
-
-    </form>
+    <!-- validation errors -->
+    
+  </form>
 </x-layout>
