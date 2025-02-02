@@ -37,7 +37,6 @@ class NinjaController extends Controller
         'bio' => 'required|string|min:20|max:1000',
         'dojo_id' => 'required|exists:dojos,id',
       ]);
-      echo $validated;
 
       Ninja::create($validated);
 
